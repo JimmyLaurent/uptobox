@@ -54,9 +54,7 @@ module.exports = class Uptobox {
                         method: 'POST',
                         form: result
                     }));
-                    return Promise.fromCallback(x(url, 'a:contains(Click here to start your download)@href')).then(res => {
-                        return res;
-                    });
+                    return Promise.fromCallback(x(url, 'a:contains(Click here to start your download)@href'));
                 });
         });
     }
