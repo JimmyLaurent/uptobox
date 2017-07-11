@@ -1,0 +1,28 @@
+{
+  "name": "uptobox",
+  "version": "1.0.0",
+  "description": "Simple node library to get uptobox premium link",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "uptobox",
+    "download",
+    "premium",
+    "link"
+  ],
+  "author": "Jimmy Laurent",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/JimmyLaurent/uptobox.git"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "cloudscraper": "^1.4.1",
+    "request": "^2.81.0",
+    "request-x-ray": "^0.1.4",
+    "x-ray": "^2.3.2"
+  }
+}
