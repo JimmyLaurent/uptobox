@@ -10,10 +10,12 @@ npm install uptobox
 
 ## Quick Example
 
+### Get a premium link
 ```js
+const Uptobox = require('uptobox');
 const uptobox = new Uptobox('username', 'password');
-uptobox.getDownloadLink('http://uptobox.com/xxxxxxxx').then(link => {
-    console.log(link);
+uptobox.getDownloadLink('http://uptobox.com/xxxxxxxx').then(premiumLink => {
+    console.log(premiumLink);
 })
 ```
 
