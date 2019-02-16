@@ -172,7 +172,7 @@ function arrangePath(path) {
   return resultPath;
 }
 
-async function getLinkInfo(urlOrFileId) {
+async function getLinkInfo(urlOrFileId, throwOnError = false) {
   const url = getUrl(urlOrFileId);
   const response = await requestPromise({
     method: 'GET',
@@ -194,7 +194,9 @@ async function getLinkInfo(urlOrFileId) {
     }
     return linkInfo;
   }
-  throw new Error('File not found');
+  if(throwOnError) {
+    throw new Error('File not found');
+  }
 }
 
 async function addToAccount(urlOrFileId, options = {}) {

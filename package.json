@@ -1,6 +1,6 @@
 {
   "name": "uptobox",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Node library to use uptobox api",
   "main": "index.js",
   "scripts": {
