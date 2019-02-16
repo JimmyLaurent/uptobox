@@ -46,8 +46,15 @@ All the following methods are avalaible.
 ### renameFolder
 ### createFolder
 ### deleteFiles
-### getFiles
+### getFilesOrFolders
 ### deleteFolder
+### getUptoboxFileId
+### getLinkInfo
+### addToAccount
+### login
+### getFilesOrFolders
+### createFolderOrGetExistingOne
+### getFolder
 
 ## License
 
