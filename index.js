@@ -194,7 +194,7 @@ async function getLinkInfo(urlOrFileId, throwOnError = false) {
     }
     return linkInfo;
   }
-  if(throwOnError) {
+  if (throwOnError) {
     throw new Error('File not found');
   }
 }
@@ -311,6 +311,17 @@ async function getFolder(param) {
   return folder;
 }
 
+async function getFiles(folderPath) {
+  folderPath = arrangePath(folderPath);
+  const filesAndFolders = await getFilesOrFolders({
+    path: folderPath
+  });
+  if (filesAndFolders.files) {
+    return filesAndFolders.files;
+  }
+  return [];
+}
+
 async function createFolderOrGetExistingOne(param) {
   const { path, name } = getPathAndName(param);
   try {
@@ -377,16 +388,20 @@ function createFolder(param) {
   });
 }
 
-function deleteFiles({ fileCodes }) {
-  return deleteRequest('/api/user/files', {
-    file_codes: Array.isArray(fileCodes) ? fileCodes.join(',') : fileCodes
-  });
+function deleteFiles(fileCodes) {
+  return deleteRequest(
+    `/api/user/files?token=${token}&file_codes=${
+      Array.isArray(fileCodes) ? fileCodes.join(',') : fileCodes
+    }`
+  );
 }
 
-function deleteFolder({ fileCodes }) {
-  return deleteRequest('/api/user/files', {
-    file_codes: Array.isArray(fileCodes) ? fileCodes.join(',') : fileCodes
-  });
+function deleteFolder(fileCodes) {
+  return deleteRequest(
+    `/api/user/files?token=${token}&file_codes=${
+      Array.isArray(fileCodes) ? fileCodes.join(',') : fileCodes
+    }`
+  );
 }
 
 module.exports = {
@@ -416,5 +431,6 @@ module.exports = {
   login,
   getFilesOrFolders,
   createFolderOrGetExistingOne,
-  getFolder
+  getFolder,
+  getFiles
 };
